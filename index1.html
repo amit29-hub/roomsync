@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RoomSync — Find Your Perfect Roommate</title>
+  <meta name="description" content="RoomSync helps students and young professionals find compatible roommates based on lifestyle, habits, and preferences.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body onload="updateHomePage()">
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🏠</div>
+      <h2>RoomSync</h2>
+    </a>
+    <ul>
+      <li><a href="index.html" class="active">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="dashboard.html">Dashboard <span class="badge">3</span></a></li>
+    </ul>
+    <button class="theme-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg-shape hero-bg-shape-1"></div>
+    <div class="hero-bg-shape hero-bg-shape-2"></div>
+
+    <div class="hero-text" id="homeContent">
+      <div class="hero-eyebrow">
+        <span class="hero-eyebrow-dot"></span>
+        Smart Roommate Matching
+      </div>
+      <h1>Find a Roommate That <span class="accent">Fits Your Life</span></h1>
+      <p>RoomSync connects students and young professionals with compatible roommates based on habits, schedule, budget, and lifestyle — not just rent.</p>
+      <div class="hero-cta">
+        <button class="btn-primary" onclick="showMessage()">Get Started →</button>
+        <button class="btn-secondary" onclick="window.location.href='search.html'">Browse Matches</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <h3>500+</h3>
+          <p>Students matched</p>
+        </div>
+        <div class="hero-stat">
+          <h3>94%</h3>
+          <p>Compatibility rate</p>
+        </div>
+        <div class="hero-stat">
+          <h3>4.9★</h3>
+          <p>User satisfaction</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="hero-visual">
+      <div class="hero-card-stack">
+        <div class="hero-card-bg"></div>
+        <div class="hero-main-card">
+          <div class="hero-profile-row">
+            <div class="hero-avatar green">A</div>
+            <div class="hero-profile-info">
+              <h4>Ana Martinez</h4>
+              <p>Early riser · Very Clean · $900/mo</p>
+            </div>
+            <span class="match-badge-large">94% Match</span>
+          </div>
+          <div class="hero-tags">
+            <span class="tag">🌅 Early Sleeper</span>
+            <span class="tag">✨ Very Clean</span>
+            <span class="tag">🚫 No Guests</span>
+            <span class="tag">📚 Studious</span>
+          </div>
+          <div class="hero-compat-bar">
+            <label><span>Compatibility</span><span>94%</span></label>
+            <div class="bar-track"><div class="bar-fill" style="width: 94%"></div></div>
+          </div>
+          <div style="margin-top: 16px;">
+            <div class="hero-compat-bar">
+              <label><span>Schedule Match</span><span>97%</span></label>
+              <div class="bar-track"><div class="bar-fill" style="width: 97%"></div></div>
+            </div>
+          </div>
+          <div style="margin-top: 12px;">
+            <div class="hero-compat-bar">
+              <label><span>Lifestyle Match</span><span>89%</span></label>
+              <div class="bar-track"><div class="bar-fill" style="width: 89%"></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-mini-card">
+        <div class="mini-icon">🔔</div>
+        <div class="mini-card-text">
+          <p>New match found</p>
+          <p>Sophia · 90% Match</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="section-label">Why RoomSync</div>
+    <h2 class="section-title">Everything you need to find the right fit</h2>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🎯</div>
+        <h3>Smart Matching</h3>
+        <p>Search roommates based on lifestyle compatibility, schedules, cleanliness, and preferences — not just price.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">⚡</div>
+        <h3>Instant Results</h3>
+        <p>Filter and find compatible roommates in seconds. Clean, fast, and designed for how students actually search.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feature-icon">🎓</div>
+        <h3>Student Focused</h3>
+        <p>Built specifically for students and young professionals looking for safer, more compatible shared housing.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBER SECTION (shown when logged in) -->
+  <section class="member-section" id="memberSection">
+    <div class="section-label">Your Activity</div>
+    <h2>Welcome back to RoomSync</h2>
+    <div class="member-grid">
+      <div class="member-card">
+        <div class="member-card-icon">💚</div>
+        <h3>New Match</h3>
+        <p>Ana is a strong match based on cleanliness and early schedule preferences.</p>
+        <button class="btn-primary" onclick="window.location.href='search.html'" style="font-size:13px;padding:10px 20px;border-radius:8px;box-shadow:none;">View Match</button>
+      </div>
+      <div class="member-card">
+        <div class="member-card-icon">💬</div>
+        <h3>Messages</h3>
+        <p>You have a sample message area where future roommate conversations could appear.</p>
+        <button class="btn-primary" onclick="showDemoMessage()" style="font-size:13px;padding:10px 20px;border-radius:8px;box-shadow:none;">Open Messages</button>
+      </div>
+      <div class="member-card">
+        <div class="member-card-icon">📋</div>
+        <h3>Profile Reminder</h3>
+        <p>Complete your compatibility quiz to improve your roommate recommendations.</p>
+        <button class="btn-primary" onclick="window.location.href='dashboard.html'" style="font-size:13px;padding:10px 20px;border-radius:8px;box-shadow:none;">Complete Quiz</button>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <span class="footer-logo">🏠 RoomSync</span>
+    <p>© 2026 RoomSync. Built by Amit Mukhram.</p>
+  </footer>
+
+</body>
+</html>
