@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register — RoomSync</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="form-page">
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🏠</div>
+      <h2>RoomSync</h2>
+    </a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="register.html" class="active">Register</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="dashboard.html">Dashboard <span class="badge">3</span></a></li>
+    </ul>
+    <button class="theme-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+  </nav>
+
+  <main class="form-container">
+    <section class="form-card large-card animate-in">
+      <div class="form-card-header">
+        <div class="form-card-icon">✨</div>
+        <h1>Create your profile</h1>
+        <p class="form-intro">Tell us about your living preferences and we'll find your best matches.</p>
+      </div>
+      <form onsubmit="return registerUser()">
+        <div class="form-group">
+          <label for="fullname">Full Name</label>
+          <input type="text" id="fullname" name="fullname" placeholder="Enter your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+        <div class="form-group">
+          <label for="newUsername">Create Username</label>
+          <input type="text" id="newUsername" name="newUsername" placeholder="Choose a username" required>
+        </div>
+        <div class="form-group">
+          <label for="newPassword">Create Password</label>
+          <input type="password" id="newPassword" name="newPassword" placeholder="Create a password" required>
+        </div>
+        <div class="form-group">
+          <label for="budget">Monthly Budget ($)</label>
+          <input type="number" id="budget" name="budget" placeholder="e.g. 900" required>
+        </div>
+        <div class="form-group">
+          <label for="cleanliness">Cleanliness Preference</label>
+          <select id="cleanliness" name="cleanliness" required>
+            <option value="">Select one</option>
+            <option value="very-clean">Very Clean</option>
+            <option value="moderate">Moderate</option>
+            <option value="relaxed">Relaxed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="schedule">Sleep Schedule</label>
+          <select id="schedule" name="schedule" required>
+            <option value="">Select one</option>
+            <option value="early">Early Sleeper</option>
+            <option value="night">Night Owl</option>
+            <option value="flexible">Flexible</option>
+          </select>
+        </div>
+        <button type="submit">Create Profile →</button>
+      </form>
+      <p class="form-link">Already have an account? <a href="login.html">Log in</a></p>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-logo">🏠 RoomSync</span>
+    <p>© 2026 RoomSync. Built by Amit Mukhram.</p>
+  </footer>
+
+</body>
+</html>
