@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — RoomSync</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body class="form-page" onload="checkLogin()">
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🏠</div>
+      <h2>RoomSync</h2>
+    </a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="search.html">Search</a></li>
+      <li><a href="dashboard.html" class="active">Dashboard <span class="badge">3</span></a></li>
+    </ul>
+    <button class="theme-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+  </nav>
+
+  <main class="form-container">
+    <section class="form-card large-card animate-in">
+      <div class="form-card-header">
+        <div class="form-card-icon">📋</div>
+        <h1>Compatibility Quiz</h1>
+        <p class="form-intro">Answer a few questions so RoomSync can find your best matches.</p>
+      </div>
+      <form onsubmit="return saveQuiz()">
+        <div class="form-group">
+          <label for="quizName">Your Name</label>
+          <input type="text" id="quizName" placeholder="Enter your name" required>
+        </div>
+        <div class="form-group">
+          <label for="quizCleanliness">Cleanliness Preference</label>
+          <select id="quizCleanliness" required>
+            <option value="">Select one</option>
+            <option value="Very Clean">Very Clean</option>
+            <option value="Moderate">Moderate</option>
+            <option value="Relaxed">Relaxed</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quizSchedule">Sleep Schedule</label>
+          <select id="quizSchedule" required>
+            <option value="">Select one</option>
+            <option value="Early Sleeper">Early Sleeper</option>
+            <option value="Night Owl">Night Owl</option>
+            <option value="Flexible">Flexible</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="quizGuests">Guest Preference</label>
+          <select id="quizGuests" required>
+            <option value="">Select one</option>
+            <option value="Rarely">Rarely has guests</option>
+            <option value="Sometimes">Sometimes has guests</option>
+            <option value="Often">Often has guests</option>
+          </select>
+        </div>
+        <button type="submit">Save Preferences →</button>
+      </form>
+      <div id="quizResult" class="result-box" style="display:none;"></div>
+      <button class="logout-btn" onclick="logoutUser()">Log Out</button>
+    </section>
+  </main>
+
+  <footer>
+    <span class="footer-logo">🏠 RoomSync</span>
+    <p>© 2026 RoomSync. Built by Amit Mukhram.</p>
+  </footer>
+
+</body>
+</html>
