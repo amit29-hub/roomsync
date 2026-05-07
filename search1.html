@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Search — RoomSync</title>
+  <meta name="description" content="Find compatible roommates on RoomSync. Filter by schedule, cleanliness, and budget.">
+  <link rel="stylesheet" href="style.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <div class="nav-logo-icon">🏠</div>
+      <h2>RoomSync</h2>
+    </a>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="register.html">Register</a></li>
+      <li><a href="login.html">Login</a></li>
+      <li><a href="search.html" class="active">Search</a></li>
+      <li><a href="dashboard.html">Dashboard <span class="badge">3</span></a></li>
+    </ul>
+    <button class="theme-btn" onclick="toggleDarkMode()">🌙 Dark</button>
+  </nav>
+
+  <div class="search-hero animate-in">
+    <div>
+      <div class="section-label">Find Roommates</div>
+      <h1>Browse compatible<br>matches</h1>
+      <p>Filter by lifestyle, schedule, and budget to find your best fit.</p>
+    </div>
+    <div class="search-controls">
+      <div class="search-input-wrap">
+        <span class="search-input-icon">🔍</span>
+        <input type="text" id="searchInput" placeholder="Search by name or lifestyle..." onkeyup="filterRoommates()">
+      </div>
+      <button class="filter-btn active" onclick="setFilter('all', this)">All</button>
+      <button class="filter-btn" onclick="setFilter('early', this)">🌅 Early</button>
+      <button class="filter-btn" onclick="setFilter('night', this)">🌙 Night Owl</button>
+      <button class="filter-btn" onclick="setFilter('clean', this)">✨ Very Clean</button>
+    </div>
+  </div>
+
+  <div class="roommate-grid" id="roommateGrid">
+
+    <div class="roommate-card" data-keywords="ana clean very clean early sleeper quiet organized" data-schedule="early" data-cleanliness="clean">
+      <div class="card-top">
+        <div class="profile-circle">A</div>
+        <span class="match-percent">94% Match</span>
+      </div>
+      <h3>Ana</h3>
+      <p class="sub">Budget: $900/mo</p>
+      <div class="card-tags">
+        <span class="tag">🌅 Early Sleeper</span>
+        <span class="tag">✨ Very Clean</span>
+        <span class="tag">📚 Studious</span>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-detail"><span>Cleanliness</span><span>Very Clean</span></div>
+      <div class="card-detail"><span>Schedule</span><span>Early Sleeper</span></div>
+      <div class="card-detail"><span>Guests</span><span>Rarely</span></div>
+      <div class="card-actions">
+        <button class="btn-save" onclick="saveMatch('Ana')">💚 Save</button>
+        <button class="btn-view" onclick="openProfile('Ana', 'Ana is very clean, quiet, and an early sleeper. She prefers organized shared spaces and rarely has guests over. Great match for focused students.')">View Profile</button>
+      </div>
+    </div>
+
+    <div class="roommate-card" data-keywords="jordan moderate night owl social flexible" data-schedule="night" data-cleanliness="moderate">
+      <div class="card-top">
+        <div class="profile-circle b">J</div>
+        <span class="match-percent">81% Match</span>
+      </div>
+      <h3>Jordan</h3>
+      <p class="sub">Budget: $750/mo</p>
+      <div class="card-tags">
+        <span class="tag">🌙 Night Owl</span>
+        <span class="tag">🤝 Moderate</span>
+        <span class="tag">🎮 Social</span>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-detail"><span>Cleanliness</span><span>Moderate</span></div>
+      <div class="card-detail"><span>Schedule</span><span>Night Owl</span></div>
+      <div class="card-detail"><span>Guests</span><span>Sometimes</span></div>
+      <div class="card-actions">
+        <button class="btn-save" onclick="saveMatch('Jordan')">💚 Save</button>
+        <button class="btn-view" onclick="openProfile('Jordan', 'Jordan has moderate cleanliness standards, stays up late, and is social. Comfortable with guests and flexible with shared routines. Great for social roommates.')">View Profile</button>
+      </div>
+    </div>
+
+    <div class="roommate-card" data-keywords="sophia clean very clean flexible quiet pets" data-schedule="flexible" data-cleanliness="clean">
+      <div class="card-top">
+        <div class="profile-circle c">S</div>
+        <span class="match-percent">90% Match</span>
+      </div>
+      <h3>Sophia</h3>
+      <p class="sub">Budget: $1,100/mo</p>
+      <div class="card-tags">
+        <span class="tag">🔄 Flexible</span>
+        <span class="tag">✨ Very Clean</span>
+        <span class="tag">🐾 Pet Friendly</span>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-detail"><span>Cleanliness</span><span>Very Clean</span></div>
+      <div class="card-detail"><span>Schedule</span><span>Flexible</span></div>
+      <div class="card-detail"><span>Guests</span><span>Sometimes</span></div>
+      <div class="card-actions">
+        <button class="btn-save" onclick="saveMatch('Sophia')">💚 Save</button>
+        <button class="btn-view" onclick="openProfile('Sophia', 'Sophia is very clean, has a flexible schedule, and is comfortable with pets. She is quiet and easy-going. Great for someone who wants a clean, relaxed living environment.')">View Profile</button>
+      </div>
+    </div>
+
+    <div class="roommate-card" data-keywords="david relaxed night owl casual guests" data-schedule="night" data-cleanliness="relaxed">
+      <div class="card-top">
+        <div class="profile-circle d">D</div>
+        <span class="match-percent">73% Match</span>
+      </div>
+      <h3>David</h3>
+      <p class="sub">Budget: $800/mo</p>
+      <div class="card-tags">
+        <span class="tag">🌙 Night Owl</span>
+        <span class="tag">😌 Relaxed</span>
+        <span class="tag">🎉 Social</span>
+      </div>
+      <div class="card-divider"></div>
+      <div class="card-detail"><span>Cleanliness</span><span>Relaxed</span></div>
+      <div class="card-detail"><span>Schedule</span><span>Night Owl</span></div>
+      <div class="card-detail"><span>Guests</span><span>Often</span></div>
+      <div class="card-actions">
+        <button class="btn-save" onclick="saveMatch('David')">💚 Save</button>
+        <button class="btn-view" onclick="openProfile('David', 'David has a relaxed cleanliness style, stays up late, and often has guests. Great fit for a laid-back social environment.')">View Profile</button>
+      </div>
+    </div>
+
+  </div>
+
+  <section class="saved-section">
+    <h2>💚 Saved Matches</h2>
+    <div class="saved-grid" id="savedMatches">
+      <div class="saved-card"><p>No saved matches yet. Hit "Save" on any profile above!</p></div>
+    </div>
+  </section>
+
+  <section class="message-section">
+    <h2>💬 Messages</h2>
+    <div class="message-grid">
+      <div class="message-card">
+        <h3>Ana</h3>
+        <p>"Hey! I saw we matched on cleanliness and schedules."</p>
+      </div>
+      <div class="message-card">
+        <h3>Sophia</h3>
+        <p>"I'm also looking near campus for August move-in."</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROFILE MODAL -->
+  <div id="profileModal" class="modal">
+    <div class="modal-content">
+      <button class="close-btn" onclick="closeProfile()">×</button>
+      <h2 id="modalName"></h2>
+      <p id="modalDetails"></p>
+    </div>
+  </div>
+
+  <footer>
+    <span class="footer-logo">🏠 RoomSync</span>
+    <p>© 2026 RoomSync. Built by Amit Mukhram.</p>
+  </footer>
+
+</body>
+</html>
